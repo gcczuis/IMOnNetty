@@ -21,7 +21,8 @@ import java.util.List;
 public class CreateGroupRequestHandler extends SimpleChannelInboundHandler<CreateGroupRequestPacket> {
     public static final CreateGroupRequestHandler INSTANCE = new CreateGroupRequestHandler();
 
-    private CreateGroupRequestHandler(){}
+    private CreateGroupRequestHandler() {
+    }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, CreateGroupRequestPacket msg) throws Exception {
@@ -40,7 +41,7 @@ public class CreateGroupRequestHandler extends SimpleChannelInboundHandler<Creat
         //生成群聊标识
         String groupId = IDUtil.randomId();
         //在服务端保存群聊标识和channelGroup的一一对应关系
-        SessionUtil.bindChannelGroup(groupId,channelGroup);
+        SessionUtil.bindChannelGroup(groupId, channelGroup);
 
         CreateGroupResponsePacket groupResponsePacket = new CreateGroupResponsePacket();
 

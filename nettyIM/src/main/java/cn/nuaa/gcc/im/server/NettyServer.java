@@ -39,6 +39,7 @@ public class NettyServer {
                         //这个处理器不需要登录验证,所以放在AuthHandler前面
                         ch.pipeline().addLast(HeartBeatRequestHandler.INSTANCE);
                         ch.pipeline().addLast(LoginRequestHandler.INSTANCE);
+
                         ch.pipeline().addLast(new AuthHandler());
                         ch.pipeline().addLast(MessageRequestHandler.INSTANCE);
                         ch.pipeline().addLast(LogOutRequestHandler.INSTANCE);
