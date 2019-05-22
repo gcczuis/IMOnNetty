@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.nuaa.gcc'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+        "io.netty:netty-all:4.1.6.Final"
+
+    )
+}

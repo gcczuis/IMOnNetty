@@ -1,0 +1,19 @@
+Netty处理器重要概念：
+
+1. Netty的处理器可以分为两类：入站处理器与出站处理器。
+2. 入站处理器的顶层是ChannelInboundhandler,出站处理器的顶层是ChannelOutboundHandler。
+3. 数据处理时常用的各种编解码器本质上都是处理器。
+4. 编解码器：无论我们向网络中写入的数据是什么类型（ing、char、String、二进制等），数据在网络中传递时，其都是以字节流的形式呈现的；将数据由原本的形式转换为字节流的操作成为编码（encode）,将数据由字节转换为它原本的格式或是其他格式的操作成为解码（decode），编解码统一称为codec。
+5. 编码：本质上是一种出站处理器；因此，编码一定是一种ChannelOutboundhandler.
+6. 解码：本质上是一种入站处理器；因此，解码一定是一种ChannelInboundhandler.
+7. 在Netty中，编码器通常以XXXEncoder命名；解码器通常以XXXDecoder命名。
+
+
+关于Netty编解码器的重要结论：
+1.无论编码器还是解码器，其所接收的消息类型必须要与待处理的参数类型一致，否则该编码器或解码器并不会被执行。
+2.在解码器进行数据解码时，一定要记得判断缓冲（ByteBuf）中的数据是否足够，否则会产生一些问题。
+
+一些Netty自带的编解码器：FixedLengthFrameDecoder,DelimiterBasedFrameDecoder,LengthFieldBasedFrameDecoder还加上一个提供
+分隔符的辅助类Delimiters。这些编解码器在阅读它的doc之后都非常简单。除了LengthFieldBasedFrameDecoder有一点小复杂。
+
+
