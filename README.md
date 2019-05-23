@@ -86,3 +86,5 @@ public class NettyClient {
     ...
 }
 ```
+3. Enter the command
+![image](http://wx1.sinaimg.cn/large/006Vwu45ly1g3b0scqzf0j31ha0e7div.jpg)
